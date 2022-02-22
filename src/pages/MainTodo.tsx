@@ -9,6 +9,7 @@ function MainTodo() {
       className="container mx-auto text-center"
     >
       <MainHeader />
+      <hr />
       <MainInput />
       <Tasks />
     </main>
