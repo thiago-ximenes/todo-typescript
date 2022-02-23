@@ -24,3 +24,11 @@ code {
   white-space: pre-wrap;
   max-height: 150px;
 }
+
+.radio-label {
+  cursor: pointer;
+}
+
+.radio-label input {
+  cursor: pointer;
+}

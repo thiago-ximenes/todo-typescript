@@ -7,7 +7,7 @@ function MainHeader() {
 
   return (
     <header
-      className="justify-content-center align-items-center"
+      className="justify-content-center align-items-center pt-4"
     >
       <div
         className="d-flex justify-content-between align-items-center"

@@ -15,7 +15,6 @@ function InputSection({ cancelClick }: InputSectionProps) {
   const [textareaDescription, setTextareaDescription] = useState<string>('')
 
   function autoGrowing(e : FormEvent) : void {
-    console.log(e)
     const textareas : NodeListOf<HTMLTextAreaElement> = document.querySelectorAll('.textarea-add-task') as NodeListOf<HTMLTextAreaElement>
     textareas.forEach((textarea : HTMLTextAreaElement) => {
       textarea.style.height = 'auto'
@@ -36,7 +35,7 @@ function InputSection({ cancelClick }: InputSectionProps) {
   function handleClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) : void {
     e.preventDefault()
     const newTask : MyTasks = {
-      id: myTasks.length + 1,
+      id: myTasks[0].id ? myTasks[myTasks.length - 1].id + 1 : 1,
       title: textareaTitle,
       description: textareaDescription,
       tags: myTags,
@@ -74,7 +73,7 @@ function InputSection({ cancelClick }: InputSectionProps) {
           { myTags.map((tag) => (
             <div
               onClick={ () => { console.log('tag clicked') } }
-              className="badge mr-2 mb-2 btn btn-outline-dark"
+              className="badge mr-2 mb-2 btn btn-outline-dark text-primary"
               key={tag.title}
             >
               <span className="me-1">{ tag.title }</span>

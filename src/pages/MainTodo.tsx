@@ -4,6 +4,7 @@ import MainInput from '../components/main/MainInput'
 import Relax from '../components/main/Relax'
 import Tasks from '../components/main/Tasks'
 import MyTasksContext from '../context/TasksContext/MyTasksContext'
+import { MyTasks } from '../context/TasksContext/types'
 
 function MainTodo() {
   const { myTasks, inputTaskOn } = useContext(MyTasksContext)
@@ -18,7 +19,9 @@ function MainTodo() {
       <Tasks />
       <MainInput />
       {
-        inputTaskOn || myTasks.length === 0 &&
+        inputTaskOn || myTasks
+        .filter((task : MyTasks) => task.isDone === false)
+        .length === 0 &&
         <Relax />
       }
     </main>
