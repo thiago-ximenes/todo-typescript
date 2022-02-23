@@ -5,10 +5,20 @@ function Tasks() {
   const { myTasks } = useContext(MyTasksContext)
 
   return (
-    myTasks.length > 0 &&
+    myTasks.length > 0 ?
     <div>
-      <h1>Task</h1>
+      {
+        myTasks.map((task) => (
+          <div key={ task.id }>
+            <p>{ task.title }</p>
+            <p>{ task.description }</p>
+            <p>{ task.tags.join(', ') }</p>
+          </div>
+        ))
+      }
     </div>
+    :
+    <div/>
   )
 }
 

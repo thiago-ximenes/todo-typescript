@@ -15,7 +15,7 @@ function MainTodo() {
     >
       <MainHeader />
       <hr />
-      {/* <Tasks /> */}
+      <Tasks />
       <MainInput />
       {
         inputTaskOn || myTasks.length === 0 &&
