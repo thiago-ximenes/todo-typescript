@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import MyTasksContext from '../../context/TasksContext/MyTasksContext'
 
 function Tasks() {
+  const { myTasks } = useContext(MyTasksContext)
+
   return (
-    <div>Tasks</div>
+    myTasks.length > 0 &&
+    <div>
+      <h1>Task</h1>
+    </div>
   )
 }
 

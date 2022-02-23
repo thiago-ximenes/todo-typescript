@@ -18,38 +18,40 @@ function InputSection({ cancelClick }: InputSectionProps) {
   }
 
   return (
-    <form
-      className="d-flex flex-column align-items-center
-      bg-opacity-50 bg-black rounded-3 p-2"
-    >
-      <textarea
-        onInput={(e) => autoGrowing(e)}
-        className="container-fluid bg-transparent border-0 text-white textarea-add-task"
-        placeholder="descrição: Comprar leite em supermercado"
-      />
-      <textarea
-        onInput={autoGrowing}
-        className="container-fluid bg-transparent border-0 text-white textarea-add-task"
-        placeholder="exemplo: Comprar leite"
-      />
+    <form>
       <div
-        className="d-flex align-items-center align-self-start"
+        className="d-flex flex-column align-items-center
+      bg-opacity-50 bg-black rounded-3 p-2"
       >
-        { myTags.map((tag) => (
-          <span
-            onClick={ () => { console.log('tag clicked') } }
-            className="badge mr-2 btn btn-outline-dark"
-            key={tag}
-          >
-            { tag }
-          </span>
-        ) ) }
+        <textarea
+          onInput={(e) => autoGrowing(e)}
+          className="container-fluid bg-transparent border-0 text-white textarea-add-task"
+          placeholder="descrição: Comprar leite em supermercado"
+        />
+        <textarea
+          onInput={autoGrowing}
+          className="container-fluid bg-transparent border-0 text-white textarea-add-task"
+          placeholder="exemplo: Comprar leite"
+        />
+        <div
+          className="d-flex align-items-center align-self-start"
+        >
+          { myTags.map((tag) => (
+            <span
+              onClick={ () => { console.log('tag clicked') } }
+              className="badge mr-2 mb-2 btn btn-outline-dark"
+              key={tag}
+            >
+              { tag }
+            </span>
+          ) ) }
+        </div>
       </div>
       <div
-        className="d-flex"
+        className="d-flex my-3 align-self-start"
       >
         <button
-          className="btn btn-danger"
+          className="btn btn-danger me-3"
           type="button"
         >
           Adicionar tarefa

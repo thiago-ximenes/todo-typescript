@@ -10,6 +10,8 @@ function MyTasksProvider({ children } : MyTasksProviderProps) {
     'Hoje',
     'Caixa de Entrada'
   ])
+  const [myTasks, setMyTasks] = useState<string[]>([]);
+  const [inputTaskOn, setInputTaskOn] = useState<boolean>(false)
 
   return (
     <MyTasksContext.Provider
@@ -17,6 +19,10 @@ function MyTasksProvider({ children } : MyTasksProviderProps) {
         {
           myTags,
           setMyTags,
+          myTasks,
+          setMyTasks,
+          inputTaskOn,
+          setInputTaskOn,
         }
       }
     >

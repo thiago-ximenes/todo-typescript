@@ -7,7 +7,7 @@ function App() {
   return (
     <div
       className="container-fluid bg-dark text-white"
-      style={{ height: '100vh' }}
+      style={{ height: '100vh', minHeight: '100%' }}
     >
       <MainTodo />
     </div>

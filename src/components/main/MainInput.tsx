@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import InputButton from './InputButton'
 import InputSection from './InputSection'
+import MyTasksContext from '../../context/TasksContext/MyTasksContext'
 
 function MainInput() {
-  const [inputTaskOn, setInputTaskOn] = useState<boolean>(false)
+  const { inputTaskOn, setInputTaskOn } = useContext(MyTasksContext)
 
   function handleAddTaskClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault()
