@@ -35,7 +35,7 @@ function InputSection({ cancelClick }: InputSectionProps) {
   function handleClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) : void {
     e.preventDefault()
     const newTask : MyTasks = {
-      id: myTasks[0].id ? myTasks[myTasks.length - 1].id + 1 : 1,
+      id: myTasks.length ? myTasks[myTasks.length - 1].id + 1 : 1,
       title: textareaTitle,
       description: textareaDescription,
       tags: myTags,

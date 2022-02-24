@@ -70,8 +70,12 @@ function Tasks() {
                 >
                   { task.description }
                 </span>
-                <div>
-                  <BsFillPencilFill />
+                <div
+                  className="me-2"
+                >
+                  <BsFillPencilFill
+                    className="me-4"
+                  />
                   <BsFillTrash2Fill
                     onClick={ () => deleteTask(task.id) }
                   />
