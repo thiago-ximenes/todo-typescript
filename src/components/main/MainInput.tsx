@@ -6,8 +6,8 @@ import MyTasksContext from '../../context/TasksContext/MyTasksContext'
 function MainInput() {
   const { inputTaskOn, setInputTaskOn } = useContext(MyTasksContext)
 
-  function handleAddTaskClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    e.preventDefault()
+  function handleAddTaskClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent> | null) : void {
+    if (e !== null) e.preventDefault()
     setInputTaskOn(!inputTaskOn)
   }
 
@@ -19,7 +19,11 @@ function MainInput() {
     :
     (
       <InputSection
+        buttonName={ 'Adicionar tarefa'}
         cancelClick={ handleAddTaskClick }
+        description={null}
+        id={null}
+        title={null}
       />
     )
   )

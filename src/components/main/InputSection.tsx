@@ -4,7 +4,7 @@ import { MyTasks } from '../../context/TasksContext/types'
 import ActionButton from './ActionButton'
 
 type InputSectionProps = {
-  cancelClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null) => void,
+  cancelClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null) => void ,
   buttonName: string | null,
   title: string | null,
   description: string | null,
@@ -12,7 +12,7 @@ type InputSectionProps = {
 }
 
 
-function InputSection({ cancelClick, buttonName = null, title = null, description = null, id = null }: InputSectionProps) {
+function InputSection({ cancelClick , buttonName = null, title = null, description = null, id = null }: InputSectionProps) {
   const { myTags, setMyTasks, myTasks } = useContext(MyTasksContext)
 
   const [isDisabled, setIsDisabled] = useState<boolean>(true)
