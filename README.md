@@ -40,3 +40,5 @@ yarn dev
     - Click on pencil icon to open a new input field to edit the task.
     - Add the new information.
     - Click on "Salvar" button to save the editing task.
+4. Deleting tasks.
+    - Click on trash icon to delete a task and move it to the trash(Working at this feature).
