@@ -11,8 +11,7 @@ function MainTodo() {
 
   return (
     <main
-      className="container mx-auto text-center"
-      style={{ height: 'auto' }}
+      className="container mx-auto text-center pb-5 min-vh-100"
     >
       <MainHeader />
       <hr />
