@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import MyTasksContext from '../../context/TasksContext/MyTasksContext'
 import { MyTasks } from '../../context/TasksContext/types'
 import InputSection from './InputSection'
@@ -8,6 +8,13 @@ function Tasks() {
   const { myTasks, setMyTasks, setInputTaskOn } = useContext(MyTasksContext)
 
   const [editIndex, setEditIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (localStorage.getItem('myTasks')) {
+      const jsonTasks : MyTasks[] = JSON.parse(localStorage.getItem('myTasks') || '')
+      setMyTasks(jsonTasks)
+    }
+  }, [])
 
   function handleChange(taskId : number) {
     const newTasks = myTasks.map((task : MyTasks) => {

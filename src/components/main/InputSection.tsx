@@ -13,7 +13,7 @@ type InputSectionProps = {
 
 
 function InputSection({ cancelClick , buttonName = null, title = null, description = null, id = null }: InputSectionProps) {
-  const { myTags, setMyTasks, myTasks } = useContext(MyTasksContext)
+  const { myTags, setMyTasks, myTasks, myIcons } = useContext(MyTasksContext)
 
   const [isDisabled, setIsDisabled] = useState<boolean>(true)
   const [textareaTitle, setTextareaTitle] = useState<string>('')
@@ -61,12 +61,18 @@ function InputSection({ cancelClick , buttonName = null, title = null, descripti
       myTasks.splice(myTasks.findIndex((task : MyTasks) => task.id === id), 1, newTask)
       setMyTasks(myTasks)
       cancelClick(null)
+      const jsonTasks : string = JSON.stringify(myTasks)
+      localStorage.setItem('myTasks', jsonTasks)
     } else {
       setMyTasks([...myTasks, newTask])
+      const jsonTasks : string = JSON.stringify([...myTasks, newTask])
+      localStorage.setItem('myTasks', jsonTasks)
     }
     setTextareaTitle('')
     setTextareaDescription('')
     setIsDisabled(true)
+    console.log(myTasks)
+    console.log(newTask)
   }
 
   return (
@@ -99,7 +105,7 @@ function InputSection({ cancelClick , buttonName = null, title = null, descripti
               key={tag.title}
             >
               <span className="me-1">{ tag.title }</span>
-              <span>{ tag.icon }</span>
+              {/* <span>{ myIcons[tag.title] }</span> */}
             </div>
           ) ) }
         </div>

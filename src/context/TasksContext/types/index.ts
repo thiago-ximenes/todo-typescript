@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 
 export interface MyTags {
   title: string;
-  icon: ReactNode;
 }
 
 export interface MyTasks {
@@ -20,4 +19,5 @@ export interface MyTasksContext {
   setMyTasks: (tasks: MyTasks[]) => void;
   inputTaskOn: boolean;
   setInputTaskOn: (inputTaskOn: boolean) => void;
+  myIcons: object;
 }

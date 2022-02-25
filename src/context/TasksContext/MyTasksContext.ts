@@ -9,6 +9,7 @@ export const myTasksContextDefaultValue: MyTasksContext = {
   setMyTasks: () => {},
   inputTaskOn: false,
   setInputTaskOn: () => {},
+  myIcons: {},
 }
 
 const MyTasksContext = createContext<MyTasksContext>(myTasksContextDefaultValue);

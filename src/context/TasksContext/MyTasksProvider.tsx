@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
+import { BsFillCalendar2EventFill, BsFillInboxFill } from 'react-icons/bs'
 import MyTasksContext from './MyTasksContext'
-import { BsFillInboxFill, BsFillCalendar2EventFill } from 'react-icons/bs'
 import { MyTags, MyTasks } from './types'
 
 type MyTasksProviderProps = {
@@ -9,14 +9,16 @@ type MyTasksProviderProps = {
 
 
 function MyTasksProvider({ children } : MyTasksProviderProps) {
+  const [myIcons] = useState<object>({
+      'Hoje': <BsFillCalendar2EventFill />,
+      'Caixa de Entrada': <BsFillInboxFill />,
+    });
   const [myTags, setMyTags] = useState<MyTags[]>([
     {
       title: 'Hoje',
-      icon: <BsFillCalendar2EventFill />
     },
     {
       title: 'Caixa de Entrada',
-      icon: <BsFillInboxFill />,
     },
 
   ])
@@ -33,6 +35,7 @@ function MyTasksProvider({ children } : MyTasksProviderProps) {
           setMyTasks,
           inputTaskOn,
           setInputTaskOn,
+          myIcons,
         }
       }
     >
