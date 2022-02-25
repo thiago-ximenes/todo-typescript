@@ -1,18 +1,28 @@
-import React, { FormEvent, useContext, useState } from 'react'
+import React, { FormEvent, useContext, useState, useEffect } from 'react'
 import MyTasksContext from '../../context/TasksContext/MyTasksContext'
 import { MyTasks } from '../../context/TasksContext/types'
+import ActionButton from './ActionButton'
 
 type InputSectionProps = {
-  cancelClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  cancelClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null) => void,
+  buttonName: string | null,
+  title: string | null,
+  description: string | null,
+  id: number | null,
 }
 
 
-function InputSection({ cancelClick }: InputSectionProps) {
+function InputSection({ cancelClick, buttonName = null, title = null, description = null, id = null }: InputSectionProps) {
   const { myTags, setMyTasks, myTasks } = useContext(MyTasksContext)
 
   const [isDisabled, setIsDisabled] = useState<boolean>(true)
   const [textareaTitle, setTextareaTitle] = useState<string>('')
   const [textareaDescription, setTextareaDescription] = useState<string>('')
+
+  useEffect(() => {
+    setTextareaTitle(title || '');
+    setTextareaDescription(description || '');
+  }, [])
 
   function autoGrowing(e : FormEvent) : void {
     const textareas : NodeListOf<HTMLTextAreaElement> = document.querySelectorAll('.textarea-add-task') as NodeListOf<HTMLTextAreaElement>
@@ -34,14 +44,26 @@ function InputSection({ cancelClick }: InputSectionProps) {
 
   function handleClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) : void {
     e.preventDefault()
+    function newId() : number {
+      if (id) {
+        return id
+      }
+      return myTasks.length > 0 ? myTasks[myTasks.length - 1].id + 1 : 1
+    }
     const newTask : MyTasks = {
-      id: myTasks.length ? myTasks[myTasks.length - 1].id + 1 : 1,
+      id: newId(),
       title: textareaTitle,
       description: textareaDescription,
       tags: myTags,
       isDone: false
   }
-    setMyTasks([...myTasks, newTask])
+    if (id) {
+      myTasks.splice(myTasks.findIndex((task : MyTasks) => task.id === id), 1, newTask)
+      setMyTasks(myTasks)
+      cancelClick(null)
+    } else {
+      setMyTasks([...myTasks, newTask])
+    }
     setTextareaTitle('')
     setTextareaDescription('')
     setIsDisabled(true)
@@ -85,14 +107,11 @@ function InputSection({ cancelClick }: InputSectionProps) {
       <div
         className="d-flex my-3 align-self-start"
       >
-        <button
+        <ActionButton
           onClick={ handleClick }
-          disabled={ isDisabled }
-          className="btn btn-danger me-3"
-          type="button"
-        >
-          Adicionar tarefa
-        </button>
+          isDisabled={ isDisabled }
+          buttonName={ buttonName ? buttonName : 'Adicionar tarefa' }
+        />
         <button
           className="btn btn-outline-light"
           onClick={ cancelClick }
