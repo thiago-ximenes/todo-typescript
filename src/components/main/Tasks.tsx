@@ -24,12 +24,14 @@ function Tasks() {
       return task
     })
     setMyTasks(newTasks)
+    localStorage.setItem('myTasks', JSON.stringify(newTasks))
   }
 
   function deleteTask(taskId : number) {
     console.log(taskId)
     const newTasks = myTasks.filter((task : MyTasks) => task.id !== taskId)
     setMyTasks(newTasks)
+    localStorage.setItem('myTasks', JSON.stringify(newTasks))
   }
 
   function edit(index : number) {
@@ -40,12 +42,13 @@ function Tasks() {
 
   return (
     myTasks
-    .filter((task : MyTasks) => task.isDone === false)
     .length > 0
     ?
     <div>
       {
-        myTasks.map((task, index) => 
+        myTasks
+        .filter((task : MyTasks) => task.isDone === false)
+        .map((task, index) => 
           editIndex !== index ?
           (
             <TodoItem
