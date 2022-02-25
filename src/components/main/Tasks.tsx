@@ -28,15 +28,14 @@ function Tasks() {
   }
 
   function deleteTask(taskId : number) {
-    console.log(taskId)
     const newTasks = myTasks.filter((task : MyTasks) => task.id !== taskId)
+    setEditIndex(null)
     setMyTasks(newTasks)
     localStorage.setItem('myTasks', JSON.stringify(newTasks))
   }
 
   function edit(index : number) {
     setInputTaskOn((false))
-    console.log(index)
     setEditIndex(index)
   }
 

@@ -29,3 +29,14 @@ npm run dev
 ``` 
 yarn dev
 ```
+## How to use
+1. Adding a new task.
+    - Click on "Adicionar Tarefa" button to add a new task.
+    - It's required at least a title to be able to add to the tasks field.
+    - Click on "Adicionar Tarefa" button to add this new task.
+2. Concluding a task.
+    - Just click on radius to mark as check the task.
+3. Editing a task.
+    - Click on pencil icon to open a new input field to edit the task.
+    - Add the new information.
+    - Click on "Salvar" button to save the editing task.

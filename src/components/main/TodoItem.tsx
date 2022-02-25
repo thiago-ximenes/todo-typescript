@@ -13,7 +13,6 @@ interface Props {
 function TodoItem({task, index, onChange, onDelete, edit} : Props) {
   return (
     <div
-      onClick={ () => edit(index) }
       className="radio-label"
       key={ task.id }
     >
@@ -56,6 +55,7 @@ function TodoItem({task, index, onChange, onDelete, edit} : Props) {
             className="me-2"
           >
             <BsFillPencilFill
+              onClick={ () => edit(index) }
               className="me-4"
             />
             <BsFillTrash2Fill

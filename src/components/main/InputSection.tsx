@@ -22,6 +22,7 @@ function InputSection({ cancelClick , buttonName = null, title = null, descripti
   useEffect(() => {
     setTextareaTitle(title || '');
     setTextareaDescription(description || '');
+    if  (title) setIsDisabled(false);
   }, [])
 
   function autoGrowing(e : FormEvent) : void {
@@ -34,8 +35,8 @@ function InputSection({ cancelClick , buttonName = null, title = null, descripti
 
   function handleTitleChange(e : FormEvent) : void {
     const target : HTMLTextAreaElement = e.target as HTMLTextAreaElement
-    setTextareaTitle(target.value)
     if (target.value.length > 0) {
+      setTextareaTitle(target.value)
       setIsDisabled(false)
     } else {
       setIsDisabled(true)
@@ -71,8 +72,6 @@ function InputSection({ cancelClick , buttonName = null, title = null, descripti
     setTextareaTitle('')
     setTextareaDescription('')
     setIsDisabled(true)
-    console.log(myTasks)
-    console.log(newTask)
   }
 
   return (
