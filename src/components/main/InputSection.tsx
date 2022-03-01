@@ -36,11 +36,11 @@ function InputSection({ cancelClick , buttonName = null, title = null, descripti
   function handleTitleChange(e : FormEvent) : void {
     const target : HTMLTextAreaElement = e.target as HTMLTextAreaElement
     if (target.value.length > 0) {
-      setTextareaTitle(target.value)
       setIsDisabled(false)
     } else {
       setIsDisabled(true)
     }
+    setTextareaTitle(target.value)
   }
 
   function handleClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) : void {
