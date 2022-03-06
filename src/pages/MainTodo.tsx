@@ -17,7 +17,7 @@ const MainTodo : React.FC = () => {
       <hr />
       <Tasks />
       <MainInput />
-      {(inputTaskOn || myTasks
+      {(!inputTaskOn && myTasks
         .filter((task : MyTasks) => task.isDone === false)
         .length === 0)
         && <Relax />}
