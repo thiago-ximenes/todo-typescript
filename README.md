@@ -8,6 +8,10 @@ A simple todo-list to organize the task of the day
 - Bootstrap
 - Git
 
+## In Production
+
+[Link to aplicattion running](https://todolistts.herokuapp.com/)
+
 ## Intalling
 - npm
 ```
