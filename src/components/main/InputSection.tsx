@@ -30,6 +30,7 @@ const InputSection = ({
   useEffect(() => {
     setTextareaTitle(title || '');
     setTextareaDescription(description || '');
+    if (id) setIsDisabled(false);
   }, []);
 
   function autoGrowing() : void {

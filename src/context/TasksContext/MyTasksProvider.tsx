@@ -27,7 +27,6 @@ const MyTasksProvider = ({ children } : MyTasksProviderProps) => {
 
   const [inputTaskOn, setInputTaskOn] = useState<boolean>(false);
 
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const globalStates = {
     myTags,
     setMyTags,
