@@ -27,11 +27,7 @@ jobs:
           node-version: 17
 
       - name: Install dependencies
-<<<<<<< HEAD
         run: npm install
-=======
-        run: yarn
->>>>>>> main
 
       - name: Run ESLint && Prettier
         run: npm run style:lint && npm run style:prettier
