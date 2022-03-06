@@ -30,10 +30,15 @@ const InputSection = ({
   useEffect(() => {
     setTextareaTitle(title || '');
     setTextareaDescription(description || '');
+<<<<<<< HEAD
   }, []);
 
   function autoGrowing() : void {
     const textareas : NodeListOf<HTMLTextAreaElement> = document.querySelectorAll('.textarea-add-task') as NodeListOf<HTMLTextAreaElement>;
+=======
+    if  (title) setIsDisabled(false);
+  }, [])
+>>>>>>> main
 
     textareas.forEach((textarea : HTMLTextAreaElement) => {
       const textElement : HTMLTextAreaElement = textarea;
@@ -44,14 +49,19 @@ const InputSection = ({
   }
 
   function handleTitleChange(e : FormEvent) : void {
+<<<<<<< HEAD
     const target : HTMLTextAreaElement = e.target as HTMLTextAreaElement;
 
     setTextareaTitle(target.value);
+=======
+    const target : HTMLTextAreaElement = e.target as HTMLTextAreaElement
+>>>>>>> main
     if (target.value.length > 0) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
+    setTextareaTitle(target.value)
   }
 
   function handleClick(e : React.MouseEvent<HTMLButtonElement, MouseEvent>)
@@ -90,10 +100,16 @@ const InputSection = ({
 
       localStorage.setItem('myTasks', jsonTasks);
     }
+<<<<<<< HEAD
 
     setTextareaTitle('');
     setTextareaDescription('');
     setIsDisabled(true);
+=======
+    setTextareaTitle('')
+    setTextareaDescription('')
+    setIsDisabled(true)
+>>>>>>> main
   }
 
   return (

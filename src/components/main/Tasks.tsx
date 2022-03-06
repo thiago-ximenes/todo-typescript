@@ -27,12 +27,15 @@ const Tasks : React.FC = () => {
     });
 
     setMyTasks(newTasks);
+    localStorage.setItem('myTasks', JSON.stringify(newTasks));
   }
 
   function deleteTask(taskId : number) {
     const newTasks = myTasks.filter((task : MyTasks) => task.id !== taskId);
 
+    setEditIndex(null);
     setMyTasks(newTasks);
+    localStorage.setItem('myTasks', JSON.stringify(newTasks));
   }
 
   function edit(index : number) {
@@ -42,34 +45,37 @@ const Tasks : React.FC = () => {
 
   return (
     myTasks
-      .filter((task : MyTasks) => task.isDone === false)
       .length > 0
       ? (
         <div>
-          {myTasks.map((task, index) => (editIndex !== index
-            ? (
-              <TodoItem
-                key={ task.id }
-                task={ task }
-                onChange={ handleChange }
-                onDelete={ deleteTask }
-                edit={ edit }
-                index={ index }
-              />
-            )
-            : (
-              <InputSection
-                cancelClick={ () => setEditIndex(null) }
-                buttonName="Salvar"
-                title={ task.title }
-                description={ task.description }
-                id={ task.id }
-                key={ task.id }
-              />
-            )))}
+          {myTasks
+            .filter((task : MyTasks) => task.isDone === false)
+            .map((task, index) => (editIndex !== index
+              ? (
+                <TodoItem
+                  key={ task.id }
+                  task={ task }
+                  onChange={ handleChange }
+                  onDelete={ deleteTask }
+                  edit={ edit }
+                  index={ index }
+                />
+              )
+              : (
+                <InputSection
+                  cancelClick={ () => setEditIndex(null) }
+                  buttonName="Salvar"
+                  title={ task.title }
+                  description={ task.description }
+                  id={ task.id }
+                  key={ task.id }
+                />
+              )))}
         </div>
       )
-      : <div />
+      : (
+        <div />
+      )
   );
 };
 
