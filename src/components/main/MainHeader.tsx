@@ -1,9 +1,11 @@
-import React from 'react'
+const MainHeader = () => {
+  const date = new Date();
 
-function MainHeader() {
-  const date = new Date()
-  enum Options { weekday = 'long', year = 'numeric', month = 'long', day = 'numeric' }
-  const locale = date.toLocaleString('pt-BR', Options)
+  const options : object = {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  };
+
+  const locale = date.toLocaleString('pt-BR', options);
 
   return (
     <header
@@ -20,7 +22,7 @@ function MainHeader() {
         </span>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default MainHeader
+export default MainHeader;
