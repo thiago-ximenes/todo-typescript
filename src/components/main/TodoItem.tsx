@@ -14,7 +14,6 @@ const TodoItem = ({
 } : Props) => (
   <div>
     <div
-      onClick={ () => edit(index) }
       className="radio-label"
       key={ task.id }
     >

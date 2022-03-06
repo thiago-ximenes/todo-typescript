@@ -1,6 +1,5 @@
-import { createContext, ReactNode } from 'react';
+import { createContext } from 'react';
 import { MyTasksContext } from './types';
-
 
 export const myTasksContextDefaultValue: MyTasksContext = {
   myTags: [],
@@ -10,8 +9,10 @@ export const myTasksContextDefaultValue: MyTasksContext = {
   inputTaskOn: false,
   setInputTaskOn: () => {},
   myIcons: {},
-}
+};
 
-const MyTasksContext = createContext<MyTasksContext>(myTasksContextDefaultValue);
+const MyTasksContext = createContext<MyTasksContext>(
+  myTasksContextDefaultValue,
+);
 
 export default MyTasksContext;

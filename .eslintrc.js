@@ -34,6 +34,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    '@typescript-eslint/no-empty-function': 'off',
+    'react/jsx-no-constructed-context-values': 'off',
     'no-param-reassign': 'off',
     'react/jsx-no-bind': 'off',
     'react/function-component-definition': [

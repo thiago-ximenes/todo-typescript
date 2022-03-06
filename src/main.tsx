@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
-import MyTaskProvider from './context/TasksContext/MyTasksProvider'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import MyTaskProvider from './context/TasksContext/MyTasksProvider';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,5 +10,5 @@ ReactDOM.render(
       <App />
     </MyTaskProvider>
   </React.StrictMode>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);

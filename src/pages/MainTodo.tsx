@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
-import MainHeader from '../components/main/MainHeader'
-import MainInput from '../components/main/MainInput'
-import Relax from '../components/main/Relax'
-import Tasks from '../components/main/Tasks'
-import MyTasksContext from '../context/TasksContext/MyTasksContext'
-import { MyTasks } from '../context/TasksContext/types'
+import { useContext } from 'react';
+import MainHeader from '../components/main/MainHeader';
+import MainInput from '../components/main/MainInput';
+import Relax from '../components/main/Relax';
+import Tasks from '../components/main/Tasks';
+import MyTasksContext from '../context/TasksContext/MyTasksContext';
+import { MyTasks } from '../context/TasksContext/types';
 
-function MainTodo() {
-  const { myTasks, inputTaskOn } = useContext(MyTasksContext)
+const MainTodo : React.FC = () => {
+  const { myTasks, inputTaskOn } = useContext(MyTasksContext);
 
   return (
     <main
@@ -17,14 +17,12 @@ function MainTodo() {
       <hr />
       <Tasks />
       <MainInput />
-      {
-        inputTaskOn || myTasks
+      {(inputTaskOn || myTasks
         .filter((task : MyTasks) => task.isDone === false)
-        .length === 0 &&
-        <Relax />
-      }
+        .length === 0)
+        && <Relax />}
     </main>
-  )
-}
+  );
+};
 
-export default MainTodo
+export default MainTodo;
