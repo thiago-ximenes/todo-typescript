@@ -27,7 +27,7 @@ jobs:
           node-version: 17
 
       - name: Install dependencies
-        run: npm install
+        run: rm -rf yarn.lock && npm install
 
       - name: Run ESLint && Prettier
         run: npm run style:lint
