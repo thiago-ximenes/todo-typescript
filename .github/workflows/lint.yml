@@ -30,7 +30,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint && Prettier
-        run: npm run style:lint && npm run style:prettier
+        run: npm run style:lint
 
 
       - name: Run linters
