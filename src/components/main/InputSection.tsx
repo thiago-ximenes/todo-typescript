@@ -110,6 +110,8 @@ const InputSection = ({
           onInput={ autoGrowing }
           className="container-fluid bg-transparent border-0 text-white textarea-add-task"
           placeholder="exemplo: Comprar leite"
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          autoFocus
         />
         <textarea
           value={ textareaDescription }
