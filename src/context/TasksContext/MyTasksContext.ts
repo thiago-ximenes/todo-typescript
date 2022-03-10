@@ -11,8 +11,8 @@ export const myTasksContextDefaultValue: MyTasksContext = {
   myIcons: {},
 };
 
-const MyTasksContext = createContext<MyTasksContext>(
+const MyContext = createContext<MyTasksContext>(
   myTasksContextDefaultValue,
 );
 
-export default MyTasksContext;
+export default MyContext;
