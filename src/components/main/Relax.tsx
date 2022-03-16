@@ -4,9 +4,7 @@ const Relax : React.FC = () => (
       fst-italic"
   >
     <h2>
-      Sem tarefas hoje.
-      <br />
-      Dia de folga?
+      Lidi, vai dizer que isso não é mais bonito?
     </h2>
     <img
       style={ {
