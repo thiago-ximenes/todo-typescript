@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsPlusCircleDotted } from 'react-icons/bs';
+import { FormattedMessage } from 'react-intl';
 
 type InputButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
@@ -12,7 +13,7 @@ const InputButton = ({ onClick }: InputButtonProps) => (
     type="button"
     onClick={ onClick }
   >
-    Adicionar tarefa
+    <FormattedMessage id="input.add.button.name" />
     <div
       className="ms-2 d-flex align-items-center text-danger"
     >
