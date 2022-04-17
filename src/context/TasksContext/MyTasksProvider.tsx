@@ -3,11 +3,7 @@ import { BsFillCalendar2EventFill, BsFillInboxFill } from 'react-icons/bs';
 import MyTasksContext from './MyTasksContext';
 import { MyTags, MyTasks } from './types';
 
-type MyTasksProviderProps = {
-  children: React.ReactNode
-}
-
-const MyTasksProvider = ({ children } : MyTasksProviderProps) => {
+const MyTasksProvider: React.FC = ({ children }) => {
   const [myIcons] = useState<object>({
     Hoje: <BsFillCalendar2EventFill />,
     'Caixa de Entrada': <BsFillInboxFill />,
