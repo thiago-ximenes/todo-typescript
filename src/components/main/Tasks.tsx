@@ -21,6 +21,17 @@ const Tasks : React.FC = () => {
   }, []);
 
   function handleChange(taskId : number) {
+    toast.success(<FormattedMessage id="tasks.toast.task.done" />, {
+      theme: 'dark',
+      position: 'top-right',
+      autoClose: 1700,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      pauseOnFocusLoss: false,
+    });
     const newTasks = myTasks.map((task : MyTasks) => {
       if (task.id === taskId) {
         task.isDone = !task.isDone;
