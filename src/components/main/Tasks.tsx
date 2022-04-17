@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MyTasksContext from '../../context/TasksContext/MyTasksContext';
@@ -35,7 +36,7 @@ const Tasks : React.FC = () => {
   function deleteTask(taskId : number) {
     const newTasks = myTasks.filter((task : MyTasks) => task.id !== taskId);
 
-    toast('🗑️ Tarefa deletada com sucesso!', {
+    toast(<FormattedMessage id="delete.task.message" />, {
       theme: 'dark',
       position: 'top-right',
       autoClose: 1700,

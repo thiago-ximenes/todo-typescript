@@ -27,6 +27,8 @@ const MyTasksProvider = ({ children } : MyTasksProviderProps) => {
 
   const [inputTaskOn, setInputTaskOn] = useState<boolean>(false);
 
+  const [myLanguage, setMyLanguage] = useState<string>('pt-BR');
+
   const globalStates = {
     myTags,
     setMyTags,
@@ -35,6 +37,8 @@ const MyTasksProvider = ({ children } : MyTasksProviderProps) => {
     inputTaskOn,
     setInputTaskOn,
     myIcons,
+    myLanguage,
+    setMyLanguage,
   };
 
   return (

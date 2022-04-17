@@ -1,3 +1,5 @@
+import LanguagesSelect from '../header/LanguagesSelect';
+
 const MainHeader = () => {
   const date = new Date();
 
@@ -20,6 +22,7 @@ const MainHeader = () => {
         <span>
           {locale}
         </span>
+        <LanguagesSelect />
       </div>
     </header>
   );
