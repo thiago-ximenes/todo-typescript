@@ -1,4 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MyTasksContext from '../../context/TasksContext/MyTasksContext';
 import { MyTasks } from '../../context/TasksContext/types';
 import InputSection from './InputSection';
@@ -33,6 +35,17 @@ const Tasks : React.FC = () => {
   function deleteTask(taskId : number) {
     const newTasks = myTasks.filter((task : MyTasks) => task.id !== taskId);
 
+    toast('🗑️ Tarefa deletada com sucesso!', {
+      theme: 'dark',
+      position: 'top-right',
+      autoClose: 1700,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      pauseOnFocusLoss: false,
+    });
     setEditIndex(null);
     setMyTasks(newTasks);
     localStorage.setItem('myTasks', JSON.stringify(newTasks));

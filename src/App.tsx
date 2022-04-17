@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import MainTodo from './pages/MainTodo';
 
 const App = () => (
@@ -5,6 +6,7 @@ const App = () => (
     className="container-fluid bg-dark text-white"
   >
     <MainTodo />
+    <ToastContainer />
   </div>
 );
 
