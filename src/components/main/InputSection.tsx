@@ -1,6 +1,7 @@
 import React, {
   FormEvent, useContext, useEffect, useState,
 } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 import MyTasksContext from '../../context/TasksContext/MyTasksContext';
 import { MyTasks } from '../../context/TasksContext/types';
 import ActionButton from './ActionButton';
@@ -17,6 +18,12 @@ type InputSectionProps = {
 const InputSection = ({
   cancelClick, buttonName = null, title = null, description = null, id = null,
 }: InputSectionProps) => {
+  const intl = useIntl();
+
+  const placeholderDescription = intl.formatMessage({ id: 'task.placeholder.description' });
+
+  const placeholderTitle = intl.formatMessage({ id: 'task.placeholder.title' });
+
   const {
     myTags, setMyTasks, myTasks,
   } = useContext(MyTasksContext);
@@ -109,7 +116,7 @@ const InputSection = ({
           onChange={ handleTitleChange }
           onInput={ autoGrowing }
           className="container-fluid bg-transparent border-0 text-white textarea-add-task"
-          placeholder="exemplo: Comprar leite"
+          placeholder={ placeholderTitle }
           // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
         />
@@ -118,7 +125,7 @@ const InputSection = ({
           onChange={ (e) => setTextareaDescription(e.target.value) }
           onInput={ autoGrowing }
           className="container-fluid bg-transparent border-0 text-white textarea-add-task"
-          placeholder="descrição: Comprar leite em supermercado"
+          placeholder={ placeholderDescription }
         />
         <div
           className="d-flex align-items-center align-self-start"
@@ -129,7 +136,6 @@ const InputSection = ({
               key={ tag.title }
             >
               <span className="me-1">{ tag.title }</span>
-              {/* <span>{ myIcons[tag.title] }</span> */}
             </div>
           )) }
         </div>
@@ -140,14 +146,14 @@ const InputSection = ({
         <ActionButton
           onClick={ handleClick }
           isDisabled={ isDisabled }
-          buttonName={ buttonName || 'Adicionar tarefa' }
+          buttonName={ buttonName || 'input.add.button.name' }
         />
         <button
           type="button"
           className="btn btn-outline-light"
           onClick={ cancelClick }
         >
-          Cancelar
+          <FormattedMessage id="input.cancel.button.name" />
         </button>
       </div>
     </form>

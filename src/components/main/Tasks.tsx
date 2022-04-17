@@ -23,7 +23,7 @@ const Tasks : React.FC = () => {
   function handleChange(taskId : number) {
     toast.success(<FormattedMessage id="tasks.toast.task.done" />, {
       theme: 'dark',
-      position: 'top-right',
+      position: 'bottom-center',
       autoClose: 1700,
       hideProgressBar: true,
       closeOnClick: true,
@@ -49,7 +49,7 @@ const Tasks : React.FC = () => {
 
     toast(<FormattedMessage id="delete.task.message" />, {
       theme: 'dark',
-      position: 'top-right',
+      position: 'bottom-center',
       autoClose: 1700,
       hideProgressBar: true,
       closeOnClick: true,
@@ -89,7 +89,7 @@ const Tasks : React.FC = () => {
               : (
                 <InputSection
                   cancelClick={ () => setEditIndex(null) }
-                  buttonName="Salvar"
+                  buttonName="input.save.button.name"
                   title={ task.title }
                   description={ task.description }
                   id={ task.id }

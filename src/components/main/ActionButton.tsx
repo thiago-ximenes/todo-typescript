@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 interface Props {
   buttonName: string
@@ -13,7 +14,7 @@ const ActionButton = ({ buttonName, isDisabled, onClick }: Props) => (
     className="btn btn-danger me-3"
     type="button"
   >
-    { buttonName }
+    <FormattedMessage id={ buttonName } />
   </button>
 );
 

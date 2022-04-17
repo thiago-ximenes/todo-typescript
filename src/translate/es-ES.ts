@@ -5,6 +5,10 @@ const messages = {
   'relax.title1': 'No hay tareas hoy.',
   'relax.title2': '¿Día de descanso?',
   title: 'Tareas del dia',
+  'task.placeholder.description': 'descripción: Comprar leche en el supermercado',
+  'task.placeholder.title': 'ejemplo: Comprar leche',
+  'input.cancel.button.name': 'Cancelar',
+  'input.save.button.name': 'Guardar',
 };
 
 export default {

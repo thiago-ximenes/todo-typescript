@@ -21,7 +21,7 @@ const MainInput = () => {
       )
       : (
         <InputSection
-          buttonName="Adicionar tarefa"
+          buttonName="input.add.button.name"
           cancelClick={ handleAddTaskClick }
           description={ null }
           id={ null }
