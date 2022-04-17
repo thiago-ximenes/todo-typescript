@@ -1,13 +1,18 @@
+import { useContext } from 'react';
+import { FormattedMessage } from 'react-intl';
+import MyTasksContext from '../../context/TasksContext/MyTasksContext';
 import LanguagesSelect from '../header/LanguagesSelect';
 
 const MainHeader = () => {
+  const { myLanguage } = useContext(MyTasksContext);
+
   const date = new Date();
 
   const options : object = {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   };
 
-  const locale = date.toLocaleString('pt-BR', options);
+  const locale = date.toLocaleString(myLanguage, options);
 
   return (
     <header
@@ -17,7 +22,7 @@ const MainHeader = () => {
         className="d-flex justify-content-between align-items-center"
       >
         <h2>
-          Tarefas do dia
+          <FormattedMessage id="title" />
         </h2>
         <span>
           {locale}

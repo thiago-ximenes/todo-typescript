@@ -4,6 +4,7 @@ const messages = {
   'tasks.toast.task.done': 'Tarea completada con éxito!',
   'relax.title1': 'No hay tareas hoy.',
   'relax.title2': '¿Día de descanso?',
+  title: 'Tareas del dia',
 };
 
 export default {
