@@ -1,12 +1,14 @@
+import { FormattedMessage } from 'react-intl';
+
 const Relax : React.FC = () => (
   <div
     className="d-flex justify-content-around align-items-center mt-5
       fst-italic"
   >
     <h2>
-      Sem tarefas hoje.
+      <FormattedMessage id="relax.title1" />
       <br />
-      Dia de folga?
+      <FormattedMessage id="relax.title2" />
     </h2>
     <img
       style={ {

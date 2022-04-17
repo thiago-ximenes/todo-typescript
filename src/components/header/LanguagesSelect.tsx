@@ -32,7 +32,7 @@ const LanguagesSelect: React.FC = () => {
     >
       <button
         type="button"
-        className="btn btn-outline-dark"
+        className="btn btn-outline-dark align-self-end"
         onClick={ () => setSelectOn(!selectIsOn) }
       >
         <img
@@ -45,7 +45,7 @@ const LanguagesSelect: React.FC = () => {
       </button>
       {selectIsOn && (
       <div
-        className="d-flex flex-row"
+        className="position-absolute "
       >
         <button
           type="button"
