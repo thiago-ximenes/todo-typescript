@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Brazil from '../../assets/icon-flag-brazil.svg';
 import SPAIN from '../../assets/icon-flag-spain.svg';
 import USA from '../../assets/icon-flag-usa.svg';
@@ -60,6 +60,9 @@ const LanguagesSelect: React.FC = () => {
           onClick={ () => setLanguage('pt-BR') }
         >
           <img
+            style={ {
+              width: '2.5rem',
+            } }
             src={ languages['pt-BR'] }
             alt="pt-BR"
           />
@@ -70,6 +73,9 @@ const LanguagesSelect: React.FC = () => {
           onClick={ () => setLanguage('en-US') }
         >
           <img
+            style={ {
+              width: '2.5rem',
+            } }
             src={ languages['en-US'] }
             alt="en-US"
           />
