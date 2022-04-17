@@ -19,5 +19,5 @@ export interface MyTasksContext {
   setInputTaskOn: (inputTaskOn: boolean) => void;
   myIcons: object;
   myLanguage: string;
-  setMyLanguage: (language: string) => void;
+  setMyLanguage: (myLanguage: string) => void;
 }
