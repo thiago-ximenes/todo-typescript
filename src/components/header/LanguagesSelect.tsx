@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Brazil from '../../assets/icon-flag-brazil.svg';
 import SPAIN from '../../assets/icon-flag-spain.svg';
 import USA from '../../assets/icon-flag-usa.svg';
@@ -15,6 +15,12 @@ const LanguagesSelect: React.FC = () => {
 
   const [selectIsOn, setSelectOn] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (localStorage.getItem('myLanguage')) {
+      setMyLanguage(localStorage.getItem('myLanguage') as string);
+    }
+  }, []);
+
   const languages: Language = {
     'pt-BR': Brazil,
     'en-US': USA,
@@ -22,6 +28,7 @@ const LanguagesSelect: React.FC = () => {
   };
 
   function setLanguage(language: string): void {
+    localStorage.setItem('myLanguage', language);
     setMyLanguage(language);
     setSelectOn(false);
   }
